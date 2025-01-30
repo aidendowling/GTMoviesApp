@@ -6,13 +6,15 @@
 .navbar a.nav-link {
   color: #FFFEF6 !important;
 }
+
 .bg-dark {
   background-color: #2E2E2E !important;
 }
+
 .ms-footer {
   background-color: #202020;
-
 }
+
 .ms-footer p {
   color: #7F7F7F;
   font-size: 13px;
