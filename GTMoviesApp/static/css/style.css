@@ -1,4 +1,4 @@
-.bg-index{
+.bg-index {
   background: url("/static/img/background.jpg") no-repeat
     fixed;
   background-size: 100% auto;
@@ -7,8 +7,13 @@
   color: #FFFEF6 !important;
 }
 
-.bg-dark {
-  background-color: #2E2E2E !important;
+.navbar-material {
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  background-color: rgba(0,0,0,0.5) !important;
+
+  border-radius: 16px;
+  border: solid rgba(1,1,1,0.5) 1px;
 }
 
 .ms-footer {
