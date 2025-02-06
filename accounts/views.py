@@ -1,6 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
-from .forms import CustomUserCreationForm
+from .forms import CustomUserCreationForm, CustomErrorList
 from django.shortcuts import redirect
 from django.contrib.auth.models import User
 
@@ -12,7 +12,7 @@ def signup(request):
         return render(request, 'accounts/signup.html',
             {'template_data': template_data})
     elif request.method == 'POST':
-        form = CustomUserCreationForm(request.POST)
+        form = CustomUserCreationForm(request.POST, error_class=CustomErrorList)
         if form.is_valid():
             form.save()
             return redirect('home.index')
