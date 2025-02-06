@@ -21,7 +21,7 @@
       initial-scale=1" />
   </head>
   <body>
-     <nav class="p-3 navbar navbar-material navbar-expand-lg m-4 position-fixed">
+     <nav class="p-3 navbar navbar-material navbar-expand-lg navbar-dark m-4 position-fixed">
       <div class="container">
         <a class="navbar-brand"
            href="{% url 'home.index' %}">
@@ -47,6 +47,9 @@
                href="{% url 'accounts.signup' %}">
                Sign Up
             </a>
+              <a class="nav-link"
+              href="{% url 'accounts.orders' %}">Orders
+            </a>
               <a class="nav-link" href=
               "{% url 'movies.index' %}">Movies</a>
               <a class="nav-link"
@@ -56,7 +59,7 @@
       </div>
     </nav>
     <!-- Header -->
-    <div style="min-height: 100vh">
+    <div style="min-height: 100vh; padding-top: 128px;">
       {% block content %}
       {% endblock content %}
     </div>
