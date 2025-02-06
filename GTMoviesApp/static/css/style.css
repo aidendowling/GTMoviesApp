@@ -3,17 +3,32 @@
     fixed;
   background-size: 100% auto;
 }
-.navbar a.nav-link {
-  color: #FFFEF6 !important;
+
+.navbar {
+  display: flex;
+  box-sizing: border-box;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  background-color: #333;
+  text-align: center;
+  white-space: nowrap;
+  overflow-x: auto;
 }
 
-.navbar-material {
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  background-color: rgba(0,0,0,0.5) !important;
+.navbar li {
+  display: inline-block;
+}
 
-  border-radius: 16px;
-  border: solid rgba(1,1,1,0.5) 1px;
+.navbar li a {
+  display: block;
+  color: white;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+
+.navbar li a:hover {
+  background-color: #111;
 }
 
 .ms-footer {
