@@ -21,7 +21,7 @@
       initial-scale=1" />
   </head>
   <body>
-     <nav class="p-3 navbar navbar-material navbar-expand-lg m-4 position-fixed">
+     <nav class="p-3 navbar navbar-material navbar-expand-lg navbar-dark m-4 position-fixed">
       <div class="container">
         <a class="navbar-brand"
            href="{% url 'home.index' %}">
@@ -56,7 +56,7 @@
       </div>
     </nav>
     <!-- Header -->
-    <div style="min-height: 100vh">
+    <div style="min-height: 100vh; padding-top: 64px;">
       {% block content %}
       {% endblock content %}
     </div>
