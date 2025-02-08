@@ -1,10 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
-<header class="masthead bg-index text-white text-center py-4">
-  <div class="container d-flex flex-column align-items-center pt-2">
-    <h2>GT Movies</h2>
-    <p>Where every movie night begins!</p>
+<header class="masthead text-black">
+  <div class="container position-relative pt-2" style="top: 30px; left: 550px;">
+      <img src="/static/img/homepageMovie.jpg" class="homepageImg">
   </div>
+    <div class="container position-relative" style="top: -225px; left: 85px; color: white;">
+        <h2 class="display-1" style="font-family: Helvetica">GT Movies</h2>
+        <p class="lead" style="font-family: Helvetica">Where every movie night begins!</p>
+    </div>
 </header>
 <div class="p-3">
   <div class="container">
@@ -15,7 +18,7 @@
     </div>
   </div>
 </div>
-    <div class="homepage-bottom" style="align-content: center">
-        <p class="text">The best place to rent the most popular movies!</p>
+    <div class="homepage-bottom" style="align-content: center; color: white;">
+        <p class="text-center">The best place to rent the most popular movies!</p>
     </div>
 {% endblock content %}
