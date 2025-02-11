@@ -8,6 +8,11 @@
   opacity: 1;
 }
 
+body {
+  background: linear-gradient(180deg, rgb(0, 4, 19) 45%, rgba(6,11,45,1) 67%, rgba(46,49,74,1) 100%);
+  z-index: -99;
+}
+
 .navbar-material {
   z-index: 99;
 
@@ -20,25 +25,33 @@
 }
 
 .ms-footer {
-  background-color: #202020;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .ms-footer p {
   color: #7F7F7F;
   font-size: 13px;
 }
+
 .ms-footer a:hover {
-  color: #6ab43e;
+  color: #3349ff;
   text-decoration: none;
 }
-.ms-footer-bottom span{
+
+.ms-footer-bottom {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.ms-footer-bottom span {
   font-size: 13px;
   line-height: 38px;
 }
+
 .ms-footer-bottom a {
-  color: #6ab43e;
+  color: #3349ff;
   text-decoration: none;
 }
+
 .ms-footer-bottom a:hover {
   color: #fff;
 }
