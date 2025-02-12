@@ -4,11 +4,16 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-8">
-        <div class="card shadow p-3 mb-4 rounded" style="color: gray;">
+        <div class="card shadow p-3 mb-4 rounded">
           <div class="card-body">
             <h2>Sign Up</h2>
             <hr />
             <form method="POST">
+                <style>
+                    label {
+                        color: black;
+                    }
+                </style>
               {% csrf_token %}
               {{ template_data.form.as_p }}
               <button type="submit"
