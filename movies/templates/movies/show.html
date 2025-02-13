@@ -41,7 +41,7 @@
         <h6 class="card-subtitle mb-2 text-muted">
           {{ review.date }}
         </h6>
-        <p class="card-text">{{ review.comment }}</p>
+        <p class="card-text text-black">{{ review.comment }}</p>
           {% if user.is_authenticated and user == review.user %}
         <a class="btn btn-primary"
         href="{% url 'movies.edit_review' template_data.movie.id review.id %}">Edit
