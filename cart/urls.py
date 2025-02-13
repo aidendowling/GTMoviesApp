@@ -7,4 +7,6 @@ urlpatterns = [
     path('purchase/', views.purchase,
         name='cart.purchase'),
 
+
+
 ]
