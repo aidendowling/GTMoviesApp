@@ -2,6 +2,7 @@ import os
 import django
 import json
 import requests
+import re
 from dotenv import load_dotenv
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'GTMoviesApp.settings')
@@ -27,17 +28,17 @@ def add_movies():
             json = response.json()
             results = json['results']
             for movie in results:
-                image_path = (str(movie['title']).replace(' ', '_').lower())+'.jpg'
-                image_url = "https://image.tmdb.org/t/p/original"+str(movie['poster_path'])
-                image_response = requests.get(image_url)
+                title = re.sub('[^A-Za-z0-9]+', '', str(movie['title']))
+                image_file_path= title.lower()+'.jpg'
+                image_response = requests.get("https://image.tmdb.org/t/p/original"+str(movie['poster_path']))
                 if (image_response.status_code == 200):
-                    os.path.join('media', 'movie_images', image_path)
-                    with open(os.path.join('media', image_path), 'wb') as file:
+                    os.path.join('media', 'movie_images', image_file_path)
+                    with open(os.path.join('media', image_file_path), 'wb') as file:
                         file.write(image_response.content)
                 new_movie_list.append(Movie(
                     name=movie['title'], 
                     description=movie['overview'],
-                    image=image_path,
+                    image=image_file_path,
                     price=0
                 ))
     
