@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+import re
 
 class Movie(models.Model):
     id = models.AutoField(primary_key=True)
@@ -10,6 +10,14 @@ class Movie(models.Model):
     image = models.ImageField(upload_to='movie_images/')
     def __str__(self):
         return str(self.id) + ' - ' + self.name
+
+    @property
+    def sanitized_image_url(self):
+        if self.image:
+            filename = self.image.name.split('/')[-1]
+            sanitized_name = re.sub(r'[^a-zA-Z0-9.]', '', filename)
+            return f'/media/{sanitized_name}'
+        return ''
     
 class Review(models.Model):
     id = models.AutoField(primary_key=True)
