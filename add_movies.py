@@ -44,7 +44,7 @@ def add_movies():
                 ))
     
     # ! LEAVE THIS COMMENTED OUT UNLESS YOU NEED TO FILL THE DATABASE !
-    #Movie.objects.bulk_create(new_movie_list)
+    Movie.objects.bulk_create(new_movie_list)
     # ! LEAVE THIS COMMENTED OUT UNLESS YOU NEED TO FILL THE DATABASE !
 
     
