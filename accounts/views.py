@@ -17,7 +17,7 @@ def password_reset_request(request):
             user = User.objects.get(username=username)
             uid = urlsafe_base64_encode(force_bytes(user.pk))
             token = default_token_generator.make_token(user)
-            reset_link = f"https://pchryssgt.pythonanywhere.com/accounts/reset/{uid}/{token}/"
+            reset_link = request.build_absolute_uri(f"/accounts/reset/{uid}/{token}/")
 
             # Store reset link in session
             request.session['reset_link'] = reset_link
