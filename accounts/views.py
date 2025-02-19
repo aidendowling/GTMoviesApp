@@ -1,3 +1,5 @@
+import re
+
 from django.contrib.auth import login as auth_login, authenticate, update_session_auth_hash
 from .forms import CustomUserCreationForm, CustomErrorList
 from django.contrib.auth.decorators import login_required
@@ -8,6 +10,7 @@ from django.shortcuts import render, redirect
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes, force_str
 from django.contrib import messages
+
 
 
 def password_reset_request(request):
@@ -40,11 +43,18 @@ def password_reset_confirm(request, uidb64, token):
         if default_token_generator.check_token(user, token):
             if request.method == "POST":
                 new_password = request.POST.get("password")
+
+                # Password validation: At least 10 characters, must include letters and numbers
+                if len(new_password) < 10 or not re.search(r"[A-Za-z]", new_password) or not re.search(r"\d", new_password):
+                    messages.error(request, "Password must be at least 10 characters long and include both letters and numbers.")
+                    return render(request, "password_reset_confirm.html", {"valid_link": True})
+
                 user.set_password(new_password)
                 user.save()
                 update_session_auth_hash(request, user)  # Keep user logged in
                 messages.success(request, "Password has been reset successfully.")
                 return redirect("accounts.login")
+
             return render(request, "password_reset_confirm.html", {"valid_link": True})
         else:
             messages.error(request, "Invalid or expired link.")
@@ -52,8 +62,6 @@ def password_reset_confirm(request, uidb64, token):
         messages.error(request, "Invalid reset link.")
 
     return render(request, "password_reset_confirm.html", {"valid_link": False})
-
-
 @login_required
 def logout(request):
     auth_logout(request)
